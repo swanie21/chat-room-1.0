@@ -52,10 +52,5 @@
 /* 1 */
 /***/ function(module, exports) {
 
-	module.exports = () => {
-	  alert('ITS A TRAP!!!!!!!!!');
-	}
-
-
 /***/ }
 /******/ ]);
