@@ -28,16 +28,14 @@ describe('message interaction', function() {
 
     browser.click('#send-button');
 
-    userChatInput.setValue('suh dude')
+    userChatInput.setValue('how are you doing')
 
     browser.click('#send-button');
 
     var allMessages = browser.getText('article');
 
-    console.log(allMessages)
-
     assert.equal(allMessages[0], 'hi there');
-    assert.equal(allMessages[1], 'suh dude')
+    assert.equal(allMessages[1], 'how are you doing')
   });
 
   it('should clear input field after clicking sent button', function() {
@@ -60,14 +58,14 @@ describe('message interaction', function() {
     assert.equal(browser.isEnabled('#send-button'), false);
     });
 
-  it.skip('should enable the button if input field is not empty', function() {
+  it('should enable the button if input field is not empty', function() {
     browser.url('/');
     var userChatInput = browser.element("#user-chat-input");
     var sendButton = browser.element('#send-button');
 
     userChatInput.setValue('a');
 
-    assert(sendButton.isEnabled("#send-button"), false)
+    assert.equal(browser.isEnabled("#send-button"), true)
     });
 
 });
