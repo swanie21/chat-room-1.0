@@ -15,7 +15,7 @@ describe('message interaction', function() {
 
     userChatInput.setValue('hello there');
 
-    assert.equal(userChatInput.getText(), 'hello there');
+    assert.equal(userChatInput.getValue(), 'hello there');
   });
 
   it('should be able to add the message to the page', function() {
@@ -24,11 +24,11 @@ describe('message interaction', function() {
 
     userChatInput.setValue('hi there');
 
-    assert.equal(userChatInput.getText(), 'hi there');
+    assert.equal(userChatInput.getValue(), 'hi there');
 
     browser.click('#send-button');
 
-    var allMessages = browser.getText('li');
+    var allMessages = browser.getValue('article');
     assert.equal(allMessages.replace(/\n/g, ", "), 'hi there');
   });
 
@@ -40,8 +40,28 @@ describe('message interaction', function() {
 
     browser.click('#send-button');
 
-    assert.equal(userChatInput.getText(), 'hello there');
+    assert.equal(userChatInput.getValue(), '');
   });
+
+  it.skip('should disable the button if input field is empty', function() {
+    browser.url('/');
+    var userChatInput = browser.element("#user-chat-input");
+    var sendButton = browser.element('#send-button');
+
+    userChatInput.setValue('');
+
+    assert(sendButton.isEnabled() ).toBe(true);
+    });
+
+  it.skip('should enable the button if input field is not empty', function() {
+    browser.url('/');
+    var userChatInput = browser.element("#user-chat-input");
+    var sendButton = browser.element('#send-button');
+
+    userChatInput.setValue('a');
+
+    assert(sendButton.isEnabled() ).toBe(false);
+    });  
 
 });
 
@@ -60,7 +80,6 @@ describe('message interaction', function() {
 // user story 4
 // if there is no text in the input field for the message
 // the "send" button should be disabled
-
 
 // user story 5
 // messages should be added to the page in reverse chronological order
