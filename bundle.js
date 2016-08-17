@@ -44,8 +44,8 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var newAlert = __webpack_require__(1);
-	newAlert();
+	// var newAlert = __webpack_require__(1);
+	// newAlert();
 
 
 /***/ },

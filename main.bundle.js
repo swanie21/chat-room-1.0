@@ -52,18 +52,18 @@
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var newAlert = __webpack_require__(2);
-	newAlert();
+	// var newAlert = __webpack_require__(2);
+	// newAlert();
 
 
 /***/ },
 /* 2 */
 /***/ function(module, exports) {
-
-	module.exports = () => {
-	  alert('ITS A TRAP!!!!!!!!!');
-	}
-
+	//
+	// module.exports = () => {
+	//   alert('ITS A TRAP!!!!!!!!!');
+	// }
+	//
 
 /***/ }
 /******/ ]);
