@@ -4,9 +4,11 @@
   "description": "Chat application",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --hot --inline",
     "run": "webpack",
-    "test": "mocha"
+    "test": "mocha",
+    "feature": "wdio wdio.conf.js",
+    "sel": "java -jar selenium-server-standalone-2.53.1.jar"
   },
   "repository": {
     "type": "git",

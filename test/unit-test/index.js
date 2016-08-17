@@ -1,4 +1,4 @@
-require('./message-test');
+
 
 // const assert = require('chai').assert
 //
