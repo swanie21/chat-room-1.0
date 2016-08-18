@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Chatroom</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
     <header>
@@ -10,9 +11,12 @@
     </header>
     <section id="message-container"></section>
     <form>
-      <input type="text" id="user-chat-input" placeholder="input message">
+      <textarea id="user-chat-input" placeholder="input message"></textarea>
       <button id="send-button" disabled>Send</button>
     </form>
+    <section>
+      <p><span id="text-counter">0</span> Text Characters</p>
+    </section>
     <script src="main.bundle.js"></script>
   </body>
 </html>

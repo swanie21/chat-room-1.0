@@ -8,28 +8,21 @@ describe('welcome page', function() {
   });
 });
 
-describe('message interaction', function() {
+describe('user message interaction', function() {
   it('has an input form that I can set values in the form', function() {
     browser.url('/');
     var userChatInput = browser.element("#user-chat-input");
-
     userChatInput.setValue('hello there');
-
     assert.equal(userChatInput.getValue(), 'hello there');
   });
 
   it('should be able to add the message to the page', function() {
     browser.url('/');
     var userChatInput = browser.element("#user-chat-input");
-
     userChatInput.setValue('hi there');
-
     assert.equal(userChatInput.getValue(), 'hi there');
-
     browser.click('#send-button');
-
     var allMessages = browser.getText('article');
-
     assert.equal(allMessages[0], 'hi there');
     assert.equal(allMessages[1], 'hi friend');
   });
@@ -37,19 +30,12 @@ describe('message interaction', function() {
   it('should be able to add another user message to the page', function() {
     browser.url('/');
     var userChatInput = browser.element("#user-chat-input");
-
     userChatInput.setValue('hi there');
-
     assert.equal(userChatInput.getValue(), 'hi there');
-
     browser.click('#send-button');
-
     userChatInput.setValue('hey buddy');
-
     browser.click('#send-button');
-
     var allMessages = browser.getText('article');
-
     assert.equal(allMessages[0], 'hi there');
     assert.equal(allMessages[1], 'hi friend');
     assert.equal(allMessages[2], 'hey buddy');
@@ -59,20 +45,15 @@ describe('message interaction', function() {
   it('should clear input field after clicking sent button', function() {
     browser.url('/');
     var userChatInput = browser.element("#user-chat-input");
-
     userChatInput.setValue('hi there');
-
     browser.click('#send-button');
-
     assert.equal(userChatInput.getValue(), '');
   });
 
   it('should disable the button if input field is empty', function() {
     browser.url('/');
     var userChatInput = browser.element("#user-chat-input");
-
     userChatInput.setValue('');
-
     assert.equal(browser.isEnabled('#send-button'), false);
     });
 
@@ -80,12 +61,34 @@ describe('message interaction', function() {
     browser.url('/');
     var userChatInput = browser.element("#user-chat-input");
     var sendButton = browser.element('#send-button');
-
     userChatInput.setValue('a');
-
     assert.equal(browser.isEnabled("#send-button"), true);
     });
 
+});
+
+describe('other user message interaction', function() {
+  it('should be a different color than the user message', function() {
+    browser.url('/');
+    var userChatInput = browser.element("#user-chat-input");
+    userChatInput.setValue('hi there');
+    browser.click('#send-button');
+    var allMessages = browser.getText('article');
+    var color = userChatInput.getCssProperty('color');
+    console.log(color);
+    assert.equal(allMessages[0].color, 'rgba(0,0,0,1)');
+    console.log(color);
+    assert.equal(allMessages[1].color, 'blue');
+  });
+});
+
+describe('text character counter', function() {
+  it('should count the number of characters in the textarea', function() {
+    browser.url('/');
+    var userChatInput = browser.element("#user-chat-input");
+    userChatInput.setValue('hi there');
+    assert.equal(userChatInput.getValue.length, 6);
+  });
 });
 
 // user story 1
