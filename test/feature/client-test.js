@@ -1,4 +1,4 @@
-const assert = require('assert')
+const assert = require('assert');
 
 describe('welcome page', function() {
   it('should have a title', function() {
@@ -28,14 +28,32 @@ describe('message interaction', function() {
 
     browser.click('#send-button');
 
-    userChatInput.setValue('how are you doing')
+    var allMessages = browser.getText('article');
+
+    assert.equal(allMessages[0], 'hi there');
+    assert.equal(allMessages[1], 'hi friend');
+  });
+
+  it('should be able to add another user message to the page', function() {
+    browser.url('/');
+    var userChatInput = browser.element("#user-chat-input");
+
+    userChatInput.setValue('hi there');
+
+    assert.equal(userChatInput.getValue(), 'hi there');
+
+    browser.click('#send-button');
+
+    userChatInput.setValue('hey buddy');
 
     browser.click('#send-button');
 
     var allMessages = browser.getText('article');
 
     assert.equal(allMessages[0], 'hi there');
-    assert.equal(allMessages[1], 'how are you doing')
+    assert.equal(allMessages[1], 'hi friend');
+    assert.equal(allMessages[2], 'hey buddy');
+    assert.equal(allMessages[3], 'hi friend');
   });
 
   it('should clear input field after clicking sent button', function() {
@@ -65,7 +83,7 @@ describe('message interaction', function() {
 
     userChatInput.setValue('a');
 
-    assert.equal(browser.isEnabled("#send-button"), true)
+    assert.equal(browser.isEnabled("#send-button"), true);
     });
 
 });
