@@ -9,9 +9,12 @@ describe('welcome page', function() {
 });
 
 describe('user message interaction', function() {
+  // user story 1
+  // there should be one input field for the chat message
   it('has an input form that I can set values in the form', function() {
     browser.url('/');
     var userChatInput = browser.element("#user-chat-input");
+    // the input field should allow me to add a message
     userChatInput.setValue('hello there');
     assert.equal(userChatInput.getValue(), 'hello there');
   });
@@ -22,9 +25,9 @@ describe('user message interaction', function() {
     userChatInput.setValue('hi there');
     assert.equal(userChatInput.getValue(), 'hi there');
     browser.click('#send-button');
-    var allMessages = browser.getText('article');
-    assert.equal(allMessages[0], 'hi there');
-    assert.equal(allMessages[1], 'hi friend');
+    var allMessages = browser.getText('.message-body');
+    assert.equal(allMessages[0], 'hi friend');
+    assert.equal(allMessages[1], 'hi there');
   });
 
   it('should be able to add another user message to the page', function() {
@@ -35,11 +38,11 @@ describe('user message interaction', function() {
     browser.click('#send-button');
     userChatInput.setValue('hey buddy');
     browser.click('#send-button');
-    var allMessages = browser.getText('article');
-    assert.equal(allMessages[0], 'hi there');
-    assert.equal(allMessages[1], 'hi friend');
-    assert.equal(allMessages[2], 'hey buddy');
-    assert.equal(allMessages[3], 'hi friend');
+    var allMessages = browser.getText('.message-body');
+    assert.equal(allMessages[0], 'hi friend');
+    assert.equal(allMessages[1], 'hi there');
+    assert.equal(allMessages[2], 'hi friend');
+    assert.equal(allMessages[3], 'hey buddy');
   });
 
   it('should clear input field after clicking sent button', function() {
@@ -65,6 +68,15 @@ describe('user message interaction', function() {
     assert.equal(browser.isEnabled("#send-button"), true);
     });
 
+  // it('should be able to be deleted from the page', function() {
+  //   browser.url('/');
+  //   var userChatInput = browser.element('#user-chat-input');
+  //   userChatInput.setValue('hello');
+  //   assert.equal(userChatInput.getValue(), 'hello')
+  //   browser.click('#send-button');
+  //   browser.click('#delete-button');
+  //   assert.equal(allMessages[0], )
+  // });
 });
 
 describe('other user message interaction', function() {
@@ -76,24 +88,22 @@ describe('other user message interaction', function() {
     var allMessages = browser.getText('article');
     var color = userChatInput.getCssProperty('color');
     console.log(color);
-    assert.equal(allMessages[0].color, 'rgba(0,0,0,1)');
+    assert.equal(allMessages[0].color, 'blue');
     console.log(color);
-    assert.equal(allMessages[1].color, 'blue');
+    assert.equal(allMessages[1].color, 'rgba(0, 0, 0, 1)');
   });
 });
 
 describe('text character counter', function() {
   it('should count the number of characters in the textarea', function() {
     browser.url('/');
+    var textCounter = browser.element('#text-counter');
     var userChatInput = browser.element("#user-chat-input");
     userChatInput.setValue('hi there');
-    assert.equal(userChatInput.getValue.length, 6);
+    assert.equal(textCounter.getValue.length, 8);
   });
 });
 
-// user story 1
-// there should be one input field for the chat message
-// the input field should allow me to add a message
 
 // user story 2
 // after the message is input and the submit button is clicked
@@ -112,8 +122,9 @@ describe('text character counter', function() {
 
 // user story 6
 // when a new message is added to the page
-// there should be a delete button attached to the message
-// and the message should be removed from the page
+// a delete button should be added
+// when the delete button is clicked
+// the message should be removed from the page
 
 // user story 7
 // only the author of the message can delete their own message
