@@ -1,5 +1,5 @@
 const assert = require('chai').assert;
-const Message = require('../../message');
+const Message = require('../../lib/message');
 const $ = require('jquery');
 
 describe('our test bundle', function () {
@@ -17,12 +17,12 @@ describe('messages', function() {
     assert.isFunction(formatIdeas);
   });
 
-  it('should clear input field after send button is hit', function() {
-    var $chat-message = $('user-chat-input');
-
-  })
+  // it('should clear input field after send button is hit', function() {
+  //   var $chat-message = $('user-chat-input');
+  //
+  // })
 });
 
-describe('text character counter', function() {
-
-})
+// describe('text character counter', function() {
+//
+// })
