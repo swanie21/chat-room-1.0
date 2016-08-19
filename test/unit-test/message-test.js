@@ -8,21 +8,19 @@ describe('our test bundle', function () {
   });
 });
 
-describe('messages', function() {
-  it('should have a function called createIdea()', function() {
-    assert.isFunction(createIdea);
+describe('Message', function() {
+  it('should create a message', function() {
+    var message = new Message();
+    assert.isObject(message);
   });
 
-  it('should have a function called formatIdeas()', function() {
-    assert.isFunction(formatIdeas);
+  it('message should have text', function() {
+    var message = new Message('hi there', id);
+    assert.equal(message.text, 'hi there');
   });
 
-  // it('should clear input field after send button is hit', function() {
-  //   var $chat-message = $('user-chat-input');
-  //
-  // })
+  it('message should have an id', function() {
+    var message = new Message('hi there', id);
+    assert.equal(message.id, 'hi there');
+  });
 });
-
-// describe('text character counter', function() {
-//
-// })
