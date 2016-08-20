@@ -26,22 +26,24 @@ describe('user message interaction', function() {
     assert.equal(userChatInput.getValue(), 'hi there');
     browser.click('#send-button');
     var allMessages = browser.getText('.message-body');
-    assert.equal(allMessages, 'hi there');
-    // assert.equal(allMessages[1], 'hi friend');
+    assert.equal(allMessages[0], 'hi there');
+    assert.equal(allMessages[1], 'hi friend');
   });
 
   it('should be able to add another user message to the page', function() {
     browser.url('/');
     var userChatInput = browser.element("#user-chat-input");
-    userChatInput.setValue('hi there');
-    assert.equal(userChatInput.getValue(), 'hi there');
+    userChatInput.setValue('hello');
+    assert.equal(userChatInput.getValue(), 'hello');
     browser.click('#send-button');
     userChatInput.setValue('hey buddy');
     browser.click('#send-button');
     var allMessages = browser.getText('.message-body');
-    assert.equal(allMessages, 'hi there');
-    // assert.equal(allMessages[1], 'hi friend');
-    assert.equal(allMessages, 'hey buddy');
+    assert.equal(allMessages[0], 'hi there');
+    assert.equal(allMessages[1], 'hi friend');
+    assert.equal(allMessages[2], 'hello');
+    assert.equal(allMessages[3], 'hi friend');
+    // assert.equal(allMessages[3], 'hey buddy');
     // assert.equal(allMessages[3], 'hi friend');
   });
 
