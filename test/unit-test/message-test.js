@@ -1,5 +1,5 @@
 const assert = require('chai').assert;
-const Message = require('../../lib/message');
+const Message = require('../../lib/scripts/message');
 const $ = require('jquery');
 
 describe('Our test bundle', function () {

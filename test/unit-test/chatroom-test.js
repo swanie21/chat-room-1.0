@@ -1,6 +1,5 @@
 const assert = require('chai').assert;
-const Message = require('../../lib/message');
-const Chatroom = require('../../lib/chatroom');
+const Message = require('../../lib/scripts/chatroom');
 const $ = require('jquery');
 
 describe('Chatroom', function() {
@@ -54,7 +53,7 @@ describe('Chatroom', function() {
     });
   });
 
-  context('Message array', function() { 
+  context('Message array', function() {
     it('should be an array', function() {
       var allMessages = [];
       assert.isArray(allMessages);
