@@ -1,11 +1,10 @@
-$friend-box-color: #F2DDAB;
-
 .other-user-message {
   background-color: #F2DDAB;
-  border-radius: 5px;
+  border-radius: 0.25em;
 }
 
 #friend {
-  border-bottom: 2px solid $primary-font-color;
-  margin-top: 0.4em;
+  border-bottom: 1.8px solid $primary-font-color;
+  font-family: $primary-font-family;
+  margin: 0;
 }
