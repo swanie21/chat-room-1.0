@@ -43,8 +43,8 @@ describe('user message interaction', function() {
     assert.equal(allMessages[1], 'hi friend');
     assert.equal(allMessages[2], 'hello');
     assert.equal(allMessages[3], 'hi friend');
-    // assert.equal(allMessages[3], 'hey buddy');
-    // assert.equal(allMessages[3], 'hi friend');
+    assert.equal(allMessages[4], 'hey buddy');
+    assert.equal(allMessages[5], 'hi friend');
   });
 
   it('should clear input field after clicking sent button', function() {
@@ -70,16 +70,29 @@ describe('user message interaction', function() {
     assert.equal(browser.isEnabled("#send-button"), true);
     });
 
-  // it('should be able to be deleted from the page', function() {
-  //   browser.url('/');
-  //   var userChatInput = browser.element('#user-chat-input');
-  //   userChatInput.setValue('hello');
-  //   assert.equal(userChatInput.getValue(), 'hello')
-  //   browser.click('#send-button');
-  //   browser.click('#delete-button');
-  //   assert.equal(allMessages[0], )
-  // });
+  it('should be able to be removed from the page', function() {
+    browser.url('/');
+    var userChatInput = browser.element('#user-chat-input');
+    userChatInput.setValue('hello');
+    assert.equal(userChatInput.getValue(), 'hello');
+    browser.click('#send-button');
+    browser.click('.remove-button');
+    var allMessages = browser.getText('.message-body');
+    assert.equal(allMessages[0], 'hi friend');
+  });
 });
+
+// describe('remove button interaction', function() {
+//   it('should remove only user message', function() {
+//     browser.url('/');
+//     var userChatInput = browser.element('#user-chat-input');
+//     userChatInput.setValue('hello');
+//     assert.equal(userChatInput.getValue(), 'hello');
+//     browser.click('#send-button');
+//     browser.click('.remove-button');
+//     assert.equal(allMessages[0], 'hi friend');
+//   });
+// });
 
 // describe('other user message interaction', function() {
 //   it('should be a different color than the user message', function() {

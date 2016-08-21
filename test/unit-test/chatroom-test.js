@@ -1,5 +1,5 @@
 const assert = require('chai').assert;
-const Message = require('../../lib/chatroom');
+const Message = require('../../lib/scripts/chatroom');
 const $ = require('jquery');
 
 describe('messages', function() {
