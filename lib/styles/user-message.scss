@@ -1,23 +1,27 @@
-$user-box-color: #F2D18E;
 $primary-font-color: #87644A;
 $remove-button-color: #872A29;
 
 .user-message {
   background-color: #F2D18E;
-  border-radius: 5px;
+  border-radius: 0.3em;
 }
 
 .message-body, h3 {
   color: $primary-font-color;
-  font-family: $primary-font-family;
-  padding: 0 5px 0 5px;
+  font-family: $secondary-font-family;
+  padding: 0.5em;
 }
 
 #user {
-  border-bottom: 2px solid $primary-font-color;
+  border-bottom: 1.8px solid $primary-font-color;
+  font-family: $primary-font-family;
+  margin: 0;
   text-align: right;
 }
 
+#edit-button {
+  background: url(/lib/styles/img/edit-button.png) no-repeat;
+}
+
 // #remove-button {
-//
 // }

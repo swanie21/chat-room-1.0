@@ -1,4 +1,4 @@
-$primary-color: #517792;
+$primary-color: #284259;
 $secondary-color: #87644A;
 $primary-font-family: 'Hind Guntur', sans-serif;
 $secondary-font-family: 'Raleway', sans-serif;
@@ -7,58 +7,78 @@ $send-button-color: #849EBF;
 $edit-button-color: #41637D;
 
 body {
+  align-items: center;
   background-color: $primary-color;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
 }
 
 h1 {
-  border-bottom: 2px solid $secondary-color;
+  border-bottom: 2px solid #A68568;
   color: $secondary-font-color;
   font-family: $primary-font-family;
-  margin: 0;
-  padding-bottom: 0;
+  font-size: 2em;
+  margin: 0 0 0.3em 0;
+  padding-top: 0.5em;
   text-align: center;
-  width: 100vw;
+  width: 90vw;
 }
 
-#show-all-messages {
+#show-all-messages-button {
   background-color: #849EBF;
   border: none;
   border-radius: 5px;
   color: $secondary-font-color;
-  margin-top: 0.6em;
-  padding: 5px 0 5px 0;
-  width: 26em;
+  font-family: $primary-font-family;
+  font-size: 0.8em;
+  padding-bottom: 0;
+  width: 20em;
 }
 
 form {
+  display: flex;
+  margin-top: 0.8em;
   width: 18em;
 }
 
 textarea {
-  width: 20em;
+  border: none;
+  border-radius: 3px;
+  font-size: 1em;
+  padding: 0.5em;
   resize: none;
+  width: 14em;
 }
 
 .user-message, .other-user-message {
-  margin-bottom: 0.8em;
+  margin-top: 0.8em;
   width: 18em;
 }
 
 #send-button {
-  background-color: #849EBF;
+  background-color: $send-button-color;
   border: none;
   border-radius: 10px;
+  color: $secondary-font-color;
   font-family: $primary-font-family;
-  // color: $secondary-font-color;
+  font-size: 1em;
   height: 50px;
+  margin-left: 0.6em;
+  padding-bottom: 0;
   width: 50px;
+
+    &:disabled {
+      background: lighten($send-button-color, 15%);
+    }
 }
 
 #text-counter, .counter {
   color: $secondary-font-color;
-  font-family: $primary-font-family;
+  font-family: $secondary-font-family;
+}
+
+.counter {
+  margin-top: 0.5em;
+  width: 18em;
 }
