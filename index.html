@@ -4,19 +4,19 @@
     <meta charset="utf-8">
     <title>Chatroom</title>
     <link href="https://fonts.googleapis.com/css?family=Hind+Guntur:500|Raleway:400,500" rel="stylesheet">
-    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
   </head>
   <body>
     <header>
       <h1>ChatterBox</h1>
     </header>
+    <button id="show-all-messages">Show all messages</button>
     <section id="message-container"></section>
     <form>
-      <textarea id="user-chat-input" placeholder="input message"></textarea>
+      <textarea id="user-chat-input" placeholder="Type message here and hit send."></textarea>
       <button id="send-button" disabled>Send</button>
     </form>
     <section>
-      <p><span id="text-counter">0</span> Text Characters</p>
+      <p>Characters: <span id="text-counter">0</span></p>
     </section>
     <script src="main.bundle.js"></script>
   </body>
