@@ -16,8 +16,8 @@ describe('Chatroom', function() {
       assert.isFunction(Chatroom.retrieveMessages);
     });
 
-    it('should have a function called renderMessagesToPage()', function() {
-      assert.isFunction(Chatroom.renderMessagesToPage);
+    it('should have a function called renderTenMessagesToPage()', function() {
+      assert.isFunction(Chatroom.renderTenMessagesToPage);
     });
 
     it('should have a function called removeMessage()', function() {
@@ -44,8 +44,8 @@ describe('Chatroom', function() {
       assert.isFunction(Chatroom.resetCharacterCounter);
     });
 
-    it('should have a function called renderMessages()', function() {
-      assert.isFunction(Chatroom.renderMessages);
+    it('should have a function called renderAllMessagesToPage()', function() {
+      assert.isFunction(Chatroom.renderAllMessagesToPage);
     });
 
     it('should have a function called sendButtonFunctionality()', function() {
@@ -60,8 +60,3 @@ describe('Chatroom', function() {
     });
   });
 });
-
-// it('should clear input field after send button is hit', function() {
-//   var $chat-message = $('user-chat-input');
-//
-// })
