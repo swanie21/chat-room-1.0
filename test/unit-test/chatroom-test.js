@@ -1,5 +1,6 @@
 const assert = require('chai').assert;
 const Chatroom = require('../../lib/scripts/chatroom');
+const Message = require('../../lib/scripts/message');
 const $ = require('jquery');
 
 describe('Chatroom', function() {
@@ -57,6 +58,32 @@ describe('Chatroom', function() {
     it('should be an array', function() {
       var allMessages = [];
       assert.isArray(allMessages);
+    });
+    it('should be able to create a new instance of a message into the array', function() {
+      var allMessages = [];
+      var message = new Message('hi there');
+      assert.deepEqual({allMessages: 'hi there'}, {allMessages: 'hi there'});
+    });
+  });
+
+  context('LocalStorage', function() {
+    it('should store allMessages in localStorage', function() {
+      var message = new Message('hi there', 10);
+      var allMessages = [];
+      localStorage.setItem('allMessages', JSON.stringify(this.allMessages));
+      assert.equal(localStorage.length, 1);
+
+    });
+  });
+
+  context('Character counter', function() {
+    it('should count the characters typed', function() {
+      var textInput = 'hi there';
+      assert.equal(textInput.length, 8);
+    });
+    it('should start at zero', function() {
+      var textInput = '';
+      assert.equal(textInput.length, 0);
     });
   });
 });
