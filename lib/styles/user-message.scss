@@ -8,7 +8,6 @@ $primary-font-color: #87644A;
 .message-body, h3 {
   color: #6e513b;
   font-family: $secondary-font-family;
-  overflow-wrap: break-word;
   padding: 0.5em;
 }
 
@@ -29,7 +28,7 @@ article button {
 }
 
 .edit-button {
-  background: url(img/edit-button.svg) no-repeat;
+  background: url(/img/edit-button.svg) no-repeat;
   margin-left: 0.5em;
 
   &:hover {
@@ -38,7 +37,7 @@ article button {
 }
 
 .remove-button {
-  background: url(img/remove-button.svg) no-repeat;
+  background: url(/img/remove-button.svg) no-repeat;
   float: right;
   margin-right: 0.5em;
 
