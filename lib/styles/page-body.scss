@@ -4,7 +4,6 @@ $primary-font-family: 'Hind Guntur', sans-serif;
 $secondary-font-family: 'Raleway', sans-serif;
 $secondary-font-color: #FFF;
 $send-button-color: #849EBF;
-$edit-button-color: #41637D;
 
 body {
   align-items: center;
@@ -32,6 +31,7 @@ h1 {
   color: $secondary-font-color;
   font-family: $primary-font-family;
   font-size: 0.8em;
+  outline: none;
   padding-bottom: 0;
   width: 20em;
 }
@@ -81,4 +81,46 @@ textarea {
 .counter {
   margin-top: 0.5em;
   width: 18em;
+}
+
+@media (min-width: 700px) {
+  h1 {
+    font-size: 3em;
+  }
+  #show-all-messages-button {
+    width: 20em;
+  }
+  .user-message, .other-user-message {
+    width: 30em;
+  }
+  form {
+    width: 20em;
+  }
+  textarea {
+    width: 20em;
+  }
+  .counter {
+
+  }
+}
+
+@media (min-width: 900px) {
+  h1 {
+    font-size: 3em;
+  }
+  #show-all-messages-button {
+    width: 25em;
+  }
+  .user-message, .other-user-message {
+    width: 30em;
+  }
+  form {
+    width: 25em;
+  }
+  textarea {
+    width: 20em;
+  }
+  .counter {
+
+  }
 }
