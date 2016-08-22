@@ -9,12 +9,9 @@ describe('welcome page', function() {
 });
 
 describe('user message interaction', function() {
-  // user story 1
-  // there should be one input field for the chat message
-  it('has an input form that I can set values in the form', function() {
+  it('has an input form that I can input text into the form', function() {
     browser.url('/');
     var userChatInput = browser.element("#user-chat-input");
-    // the input field should allow me to add a message
     userChatInput.setValue('hello there');
     assert.equal(userChatInput.getValue(), 'hello there');
   });
@@ -55,14 +52,14 @@ describe('user message interaction', function() {
     assert.equal(userChatInput.getValue(), '');
   });
 
-  it('should disable the button if input field is empty', function() {
+  it('should disable the send button if input field is empty', function() {
     browser.url('/');
     var userChatInput = browser.element("#user-chat-input");
     userChatInput.setValue('');
     assert.equal(browser.isEnabled('#send-button'), false);
     });
 
-  it('should enable the button if input field is not empty', function() {
+  it('should enable the send button if input field is not empty', function() {
     browser.url('/');
     var userChatInput = browser.element("#user-chat-input");
     var sendButton = browser.element('#send-button');
@@ -97,33 +94,6 @@ describe('edit button', function() {
   });
 });
 
-// describe('remove button interaction', function() {
-//   it('should remove only user message', function() {
-//     browser.url('/');
-//     var userChatInput = browser.element('#user-chat-input');
-//     userChatInput.setValue('hello');
-//     assert.equal(userChatInput.getValue(), 'hello');
-//     browser.click('#send-button');
-//     browser.click('.remove-button');
-//     assert.equal(allMessages[0], 'hi friend');
-//   });
-// });
-
-// describe('other user message interaction', function() {
-//   it('should be a different color than the user message', function() {
-//     browser.url('/');
-//     var userChatInput = browser.element("#user-chat-input");
-//     userChatInput.setValue('hi there');
-//     browser.click('#send-button');
-//     var allMessages = browser.getText('article');
-//     var color = userChatInput.getCssProperty('color');
-//     console.log(color);
-//     assert.equal(allMessages[0].color, 'blue');
-//     console.log(color);
-//     assert.equal(allMessages[1].color, 'rgba(0, 0, 0, 1)');
-//   });
-// });
-
 describe('text character counter', function() {
   it('should count the number of characters in the textarea', function() {
     browser.url('/');
@@ -134,6 +104,10 @@ describe('text character counter', function() {
   });
 });
 
+
+// user story 1
+// there should be one input field for the chat message
+// the input field should allow me to add a message
 
 // user story 2
 // after the message is input and the submit button is clicked
