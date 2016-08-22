@@ -27,13 +27,18 @@ h1 {
 #show-all-messages-button {
   background-color: #849EBF;
   border: none;
-  border-radius: 5px;
+  border-radius: 0.2em;
   color: $secondary-font-color;
   font-family: $primary-font-family;
-  font-size: 0.8em;
+  font-size: 1em;
   outline: none;
   padding-bottom: 0;
-  width: 20em;
+  width: 18em;
+}
+
+.user-message, .other-user-message {
+  margin-top: 0.8em;
+  width: 18em;
 }
 
 form {
@@ -44,22 +49,17 @@ form {
 
 textarea {
   border: none;
-  border-radius: 3px;
+  border-radius: 0.2em;
   font-size: 1em;
   padding: 0.5em;
   resize: none;
   width: 14em;
 }
 
-.user-message, .other-user-message {
-  margin-top: 0.8em;
-  width: 18em;
-}
-
 #send-button {
   background-color: $send-button-color;
   border: none;
-  border-radius: 10px;
+  border-radius: 0.5em;
   color: $secondary-font-color;
   font-family: $primary-font-family;
   font-size: 1em;
@@ -81,37 +81,4 @@ textarea {
 .counter {
   margin-top: 0.5em;
   width: 18em;
-}
-
-@media (min-width: 650px) {
-  h1 {
-    font-size: 3em;
-  }
-  #show-all-messages-button, form, textarea, .counter {
-    width: 23em;
-  }
-  .user-message, .other-user-message {
-    width: 25em;
-  }
-}
-
-@media (min-width: 900px) {
-  h1 {
-    font-size: 3em;
-  }
-  #show-all-messages-button, form, textarea, .counter {
-    width: 25em;
-  }
-  #message-container {
-    display: flex;
-    flex-direction: column;
-    width: 32em;
-  }
-  .user-message {
-    margin-left: 2em;
-    width: 30em;
-  }
-  .other-user-message {
-    width: 30em;
-  }
 }

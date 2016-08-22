@@ -1,0 +1,32 @@
+@media (min-width: 650px) {
+  h1 {
+    font-size: 3em;
+  }
+  #show-all-messages-button, form, textarea, .counter {
+    width: 20em;
+  }
+  .user-message, .other-user-message {
+    width: 25em;
+  }
+}
+
+@media (min-width: 900px) {
+  h1 {
+    font-size: 3em;
+  }
+  #message-container {
+    display: flex;
+    flex-direction: column;
+    width: 32em;
+  }
+  #show-all-messages-button, form, textarea, .counter {
+    width: 22em;
+  }
+  .user-message {
+    margin-left: 2em;
+    width: 30em;
+  }
+  .other-user-message {
+    width: 30em;
+  }
+}
