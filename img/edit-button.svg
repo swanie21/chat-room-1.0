@@ -1,0 +1,25 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 30 30">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        clip-rule: evenodd;
+      }
+
+      .cls-2 {
+        clip-path: url(#clip-path);
+      }
+
+      .cls-3 {
+        fill: #41637d;
+      }
+    </style>
+    <clipPath id="clip-path" transform="translate(5 5)">
+      <path class="cls-1" d="M5,15.11H9.32L19.22,4.65,15.08,0,5,9.69Zm2-4.59,8-7.87,1.55,2-8.12,8.5H7Zm13-.3V20H0V.42H10v2H2V18H18V10.21Z"/>
+    </clipPath>
+  </defs>
+  <title>edit-button</title>
+  <g class="cls-2">
+    <rect class="cls-3" width="30" height="30"/>
+  </g>
+</svg>
