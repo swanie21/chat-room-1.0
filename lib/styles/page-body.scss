@@ -83,24 +83,15 @@ textarea {
   width: 18em;
 }
 
-@media (min-width: 700px) {
+@media (min-width: 650px) {
   h1 {
     font-size: 3em;
   }
-  #show-all-messages-button {
-    width: 20em;
+  #show-all-messages-button, form, textarea, .counter {
+    width: 23em;
   }
   .user-message, .other-user-message {
-    width: 30em;
-  }
-  form {
-    width: 20em;
-  }
-  textarea {
-    width: 20em;
-  }
-  .counter {
-
+    width: 25em;
   }
 }
 
@@ -108,19 +99,19 @@ textarea {
   h1 {
     font-size: 3em;
   }
-  #show-all-messages-button {
+  #show-all-messages-button, form, textarea, .counter {
     width: 25em;
   }
-  .user-message, .other-user-message {
+  #message-container {
+    display: flex;
+    flex-direction: column;
+    width: 32em;
+  }
+  .user-message {
+    margin-left: 2em;
     width: 30em;
   }
-  form {
-    width: 25em;
-  }
-  textarea {
-    width: 20em;
-  }
-  .counter {
-
+  .other-user-message {
+    width: 30em;
   }
 }
