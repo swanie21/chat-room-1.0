@@ -82,6 +82,21 @@ describe('user message interaction', function() {
   });
 });
 
+describe('edit button', function() {
+  it('should be able to edit message area', function() {
+    browser.url('/');
+    var userChatInput = browser.element('#user-chat-input');
+    userChatInput.setValue('hello');
+    browser.click('#send-button');
+    browser.click('.edit-button');
+    var userEditInput = browser.element('.message-body');
+    userEditInput.setValue('hey there');
+    browser.click('#user-chat-input');
+    var allMessages = browser.getText('.message-body');
+    assert.equal(allMessages[0], 'hey there');
+  });
+});
+
 // describe('remove button interaction', function() {
 //   it('should remove only user message', function() {
 //     browser.url('/');
