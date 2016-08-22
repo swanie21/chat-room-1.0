@@ -19,9 +19,18 @@ $remove-button-color: #872A29;
   text-align: right;
 }
 
-#edit-button {
-  background: url(/lib/styles/img/edit-button.png) no-repeat;
+article button {
+  border: none;
+  background-color: transparent;
+  height: 2em;
+  width: 2em;
+  outline: none;
 }
 
-// #remove-button {
-// }
+.edit-button {
+  background: url(/img/edit-button.svg) no-repeat;
+}
+
+.remove-button {
+  background: url(/img/remove-button.svg) no-repeat;
+}
