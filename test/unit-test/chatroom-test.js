@@ -72,7 +72,6 @@ describe('Chatroom', function() {
       var allMessages = [];
       localStorage.setItem('allMessages', JSON.stringify(this.allMessages));
       assert.equal(localStorage.length, 1);
-
     });
   });
 
