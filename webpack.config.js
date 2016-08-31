@@ -13,7 +13,8 @@ module.exports = {
     loaders: [
     { test: /\.svg/, loader: 'svg-url-loader'},
     { test: /\.css$/, loader: "style!css" },
-    { test: /\.scss$/, loader: "style!css!sass" }
+    // { test: /\.scss$/, loader: "style!css!sass" }
+    { test: /\.scss$/, loader: 'style!css!resolve-url!sass?sourceMap' }
     // { test: /\.(png|jpg|jpeg|gif|woff)$/, loader: 'url-loader?limit=8192' }
     ]
   },

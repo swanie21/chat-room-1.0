@@ -45,7 +45,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(1);
-	__webpack_require__(5);
+	__webpack_require__(4);
 
 
 /***/ },
@@ -55,17 +55,17 @@
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(2);
+	var content = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"!!./../../node_modules/css-loader/index.js!./../../node_modules/resolve-url/resolve-url.js!./../../node_modules/sass-loader/index.js?sourceMap!./styles.scss\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(4)(content, {});
+	var update = __webpack_require__(3)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./styles.scss", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./styles.scss");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/resolve-url/resolve-url.js!./../../node_modules/sass-loader/index.js?sourceMap!./styles.scss", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/resolve-url/resolve-url.js!./../../node_modules/sass-loader/index.js?sourceMap!./styles.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -75,77 +75,8 @@
 	}
 
 /***/ },
-/* 2 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(3)();
-	// imports
-
-
-	// module
-	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\nbody {\n  align-items: center;\n  background-color: #284259;\n  display: flex;\n  flex-direction: column;\n  justify-content: center; }\n\nh1 {\n  border-bottom: 2px solid #A68568;\n  color: #FFF;\n  font-family: \"Hind Guntur\", sans-serif;\n  font-size: 2em;\n  margin: 0 0 0.3em 0;\n  padding-top: 0.5em;\n  text-align: center;\n  width: 90vw; }\n\n#show-all-messages-button {\n  background-color: #849EBF;\n  border: none;\n  border-radius: 0.2em;\n  color: #FFF;\n  font-family: \"Hind Guntur\", sans-serif;\n  font-size: 1em;\n  outline: none;\n  padding-bottom: 0;\n  width: 18em; }\n\n.user-message, .other-user-message {\n  margin-top: 0.8em;\n  width: 18em; }\n\nform {\n  display: flex;\n  margin-top: 0.8em;\n  width: 18em; }\n\ntextarea {\n  border: none;\n  border-radius: 0.2em;\n  font-size: 1em;\n  padding: 0.5em;\n  resize: none;\n  width: 14em; }\n\n#send-button {\n  background-color: #849EBF;\n  border: none;\n  border-radius: 0.5em;\n  color: #FFF;\n  font-family: \"Hind Guntur\", sans-serif;\n  font-size: 1em;\n  height: 50px;\n  margin-left: 0.6em;\n  padding-bottom: 0;\n  width: 50px; }\n  #send-button:disabled {\n    background: #b6c6d9; }\n\n#text-counter, .counter {\n  color: #FFF;\n  font-family: \"Raleway\", sans-serif; }\n\n.counter {\n  margin: 0.5em;\n  width: 18em; }\n\n.user-message {\n  background-color: #edc87d;\n  border-radius: 0.3em; }\n\n.message-body, h3 {\n  color: #6e513b;\n  font-family: \"Raleway\", sans-serif;\n  overflow-wrap: break-word;\n  padding: 1em; }\n\n#user {\n  border-bottom: 1.8px solid #87644A;\n  font-family: \"Hind Guntur\", sans-serif;\n  margin: 0;\n  padding-bottom: 0;\n  text-align: right; }\n\narticle button {\n  background-color: transparent;\n  border: none;\n  height: 2em;\n  outline: none;\n  width: 2em; }\n\n.edit-button {\n  background: url(/img/edit-button.svg) no-repeat;\n  margin: 0 0 0.5em 1em; }\n  .edit-button:hover {\n    cursor: pointer; }\n\n.remove-button {\n  background: url(/img/remove-button.svg) no-repeat;\n  float: right;\n  margin: 0 1em 0.5em 0; }\n  .remove-button:hover {\n    cursor: pointer; }\n\n.other-user-message {\n  background-color: #ebddbb;\n  border-radius: 0.25em; }\n\n#friend {\n  border-bottom: 1.8px solid #87644A;\n  font-family: \"Hind Guntur\", sans-serif;\n  margin: 0;\n  padding-bottom: 0; }\n\n@media (min-width: 650px) {\n  h1 {\n    font-size: 3em; }\n  #show-all-messages-button, form, textarea, .counter {\n    width: 20em; }\n  .user-message, .other-user-message {\n    width: 25em; } }\n\n@media (min-width: 900px) {\n  h1 {\n    font-size: 3em; }\n  #message-container {\n    display: flex;\n    flex-direction: column;\n    width: 32em; }\n  #show-all-messages-button, form, textarea, .counter {\n    width: 22em; }\n  .user-message {\n    margin-left: 2em;\n    width: 30em; }\n  .other-user-message {\n    width: 30em; } }\n", ""]);
-
-	// exports
-
-
-/***/ },
+/* 2 */,
 /* 3 */
-/***/ function(module, exports) {
-
-	/*
-		MIT License http://www.opensource.org/licenses/mit-license.php
-		Author Tobias Koppers @sokra
-	*/
-	// css base code, injected by the css-loader
-	module.exports = function() {
-		var list = [];
-
-		// return the list of modules as css string
-		list.toString = function toString() {
-			var result = [];
-			for(var i = 0; i < this.length; i++) {
-				var item = this[i];
-				if(item[2]) {
-					result.push("@media " + item[2] + "{" + item[1] + "}");
-				} else {
-					result.push(item[1]);
-				}
-			}
-			return result.join("");
-		};
-
-		// import a list of modules into the list
-		list.i = function(modules, mediaQuery) {
-			if(typeof modules === "string")
-				modules = [[null, modules, ""]];
-			var alreadyImportedModules = {};
-			for(var i = 0; i < this.length; i++) {
-				var id = this[i][0];
-				if(typeof id === "number")
-					alreadyImportedModules[id] = true;
-			}
-			for(i = 0; i < modules.length; i++) {
-				var item = modules[i];
-				// skip already imported module
-				// this implementation is not 100% perfect for weird media query combinations
-				//  when a module is imported multiple times with different media queries.
-				//  I hope this will never occur (Hey this way we have smaller bundles)
-				if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-					if(mediaQuery && !item[2]) {
-						item[2] = mediaQuery;
-					} else if(mediaQuery) {
-						item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-					}
-					list.push(item);
-				}
-			}
-		};
-		return list;
-	};
-
-
-/***/ },
-/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -397,11 +328,11 @@
 
 
 /***/ },
-/* 5 */
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
-	const Chatroom = __webpack_require__(6);
-	const $ = __webpack_require__(8);
+	const Chatroom = __webpack_require__(5);
+	const $ = __webpack_require__(7);
 
 	var $chatMessage = $('#user-chat-input');
 	var $sendButton = $('#send-button');
@@ -454,11 +385,11 @@
 
 
 /***/ },
-/* 6 */
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
-	const Message = __webpack_require__(7);
-	const $ = __webpack_require__(8);
+	const Message = __webpack_require__(6);
+	const $ = __webpack_require__(7);
 
 	var $chatMessage = $('#user-chat-input');
 	var $sendButton = $('#send-button');
@@ -570,10 +501,10 @@
 
 
 /***/ },
-/* 7 */
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
-	const $ = __webpack_require__(8);
+	const $ = __webpack_require__(7);
 
 	function Message(text, id=Date.now(), user) {
 	  this.text = text || $('#user-chat-input').val();
@@ -606,7 +537,7 @@
 
 
 /***/ },
-/* 8 */
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*eslint-disable no-unused-vars*/
