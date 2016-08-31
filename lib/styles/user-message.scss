@@ -36,13 +36,13 @@ article button {
     cursor: pointer;
   }
 }
-//////////////////////////////////////////////
+
 .remove-button {
   background: url(/img/remove-button.svg) no-repeat;
   float: right;
   margin: 0 1em 0.5em 0;
 
   &:hover {
-    cursor: pointer;
+    cursor: arrow;
   }
 }
