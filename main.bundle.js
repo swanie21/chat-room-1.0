@@ -44,9 +44,10 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+
 	__webpack_require__(1);
 	__webpack_require__(4);
-
 
 /***/ },
 /* 1 */
@@ -331,65 +332,68 @@
 /* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
-	const Chatroom = __webpack_require__(5);
-	const $ = __webpack_require__(7);
+	'use strict';
+
+	var Chatroom = __webpack_require__(5);
+	var $ = __webpack_require__(7);
 
 	var $chatMessage = $('#user-chat-input');
 	var $sendButton = $('#send-button');
 	var $messageContainer = $('#message-container');
 
-	$(document).ready(function() {
+	$(document).ready(function () {
 	  Chatroom.renderTenMessages();
 	});
 
-	$sendButton.on('click', function(e) {
+	$sendButton.on('click', function (e) {
 	  e.preventDefault();
 	  Chatroom.renderTenMessages();
 	  Chatroom.sendButtonFunctionality();
 	});
 
-	$chatMessage.on('keyup', function() {
+	$chatMessage.on('keyup', function () {
 	  Chatroom.toggleSendButton();
 	});
 
-	$('#show-all-messages-button').on('click', function() {
+	$('#show-all-messages-button').on('click', function () {
 	  Chatroom.retrieveAllMessages();
 	  Chatroom.renderAllMessagesToPage();
 	});
 
-	$chatMessage.keyup(function() {
+	$chatMessage.keyup(function () {
 	  var length = $(this).val().length;
 	  $('#text-counter').text(length);
 	});
 
-	$messageContainer.on('click', '.remove-button', function() {
+	$messageContainer.on('click', '.remove-button', function () {
 	  var id = $(this).parents('.user-message').attr('id');
 	  Chatroom.removeMessage(id);
 	});
 
-	$messageContainer.on('click', '.edit-button', function() {
+	$messageContainer.on('click', '.edit-button', function () {
 	  $(this).parent().siblings('.message-body').prop('contenteditable', true).focus();
 	});
 
-	$messageContainer.on('blur', '.message-body', function() {
+	$messageContainer.on('blur', '.message-body', function () {
 	  var id = $(this).parents('.user-message').attr('id');
 	  var newText = $(this).text();
 	  Chatroom.editMessage(id, newText);
 	});
 
-	$messageContainer.on('keyup', '.message-body', function(e) {
-	  if(e.which == 13) {
+	$messageContainer.on('keyup', '.message-body', function (e) {
+	  if (e.which == 13) {
 	    $(this).focusout();
 	  }
 	});
-
 
 /***/ },
 /* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
-	const Message = __webpack_require__(6);
-	const $ = __webpack_require__(7);
+	'use strict';
+
+	var Message = __webpack_require__(6);
+	var $ = __webpack_require__(7);
 
 	var $chatMessage = $('#user-chat-input');
 	var $sendButton = $('#send-button');
@@ -399,74 +403,74 @@
 
 	  allMessages: [],
 
-	  generateNewMessage: function(text, id) {
+	  generateNewMessage: function generateNewMessage(text, id) {
 	    this.allMessages.push(new Message(text, id, 'user'));
 	    this.allMessages.push(new Message('hi friend', Date.now() + 1, 'friend'));
 	    this.storeTheMessage();
 	  },
 
-	  storeTheMessage: function() {
+	  storeTheMessage: function storeTheMessage() {
 	    localStorage.setItem('allMessages', JSON.stringify(this.allMessages));
 	    this.retrieveMessages();
 	  },
 
-	  retrieveMessages: function() {
+	  retrieveMessages: function retrieveMessages() {
 	    var storedMessages = JSON.parse(localStorage.getItem('allMessages'));
 	    if (storedMessages) {
-	      this.allMessages = storedMessages.map(function(m) {
-	        return new Message(m.text, m.id , m.user);
+	      this.allMessages = storedMessages.map(function (m) {
+	        return new Message(m.text, m.id, m.user);
 	      });
 	    }
 	    this.renderTenMessagesToPage();
 	  },
 
-	  renderTenMessagesToPage: function() {
+	  renderTenMessagesToPage: function renderTenMessagesToPage() {
 	    $messageContainer.html('');
 	    var tenMessages = this.allMessages.slice(-10);
-	    $messageContainer.prepend(tenMessages.map(function(message) {
+	    $messageContainer.prepend(tenMessages.map(function (message) {
 	      return message.generateUserHtml();
 	    }));
 	  },
 
-	  retrieveAllMessages: function() {
+	  retrieveAllMessages: function retrieveAllMessages() {
 	    var storedMessages = JSON.parse(localStorage.getItem('allMessages'));
 	    if (storedMessages) {
-	      this.allMessages = storedMessages.map(function(m) {
+	      this.allMessages = storedMessages.map(function (m) {
 	        return new Message(m.text, m.id, m.user);
 	      });
 	    }
 	    this.renderAllMessagesToPage();
 	  },
 
-	  renderAllMessagesToPage: function() {
+	  renderAllMessagesToPage: function renderAllMessagesToPage() {
 	    $messageContainer.html('');
-	    $messageContainer.prepend(this.allMessages.map(function(message) {
+	    $messageContainer.prepend(this.allMessages.map(function (message) {
 	      return message.generateUserHtml();
 	    }));
 	  },
 
-	  removeMessage: function(id) {
+	  removeMessage: function removeMessage(id) {
 	    id = parseInt(id);
-	    this.allMessages = this.allMessages.filter(function(i) {
+	    this.allMessages = this.allMessages.filter(function (i) {
 	      return i.id !== id;
 	    });
 	    this.storeTheMessage();
 	  },
 
-	  findMessageById: function(id) {
-	    return this.allMessages.find(function(message) {
-	    return message.id === id;
+	  findMessageById: function findMessageById(id) {
+	    return this.allMessages.find(function (message) {
+	      return message.id === id;
 	    });
 	  },
 
-	  editMessage: function(id, newText) {
+	  editMessage: function editMessage(id, newText) {
 	    id = parseInt(id);
 	    var message = this.findMessageById(id);
 	    message.text = newText;
 	    this.storeTheMessage();
 	  },
 
-	  toggleSendButton: function() {
+	  toggleSendButton: function toggleSendButton() {
 	    if ($chatMessage.val() !== '') {
 	      $sendButton.prop('disabled', false);
 	    } else {
@@ -474,67 +478,57 @@
 	    }
 	  },
 
-	  clearInput: function() {
+	  clearInput: function clearInput() {
 	    $chatMessage.val('');
 	    $chatMessage.focus();
 	  },
 
-	  resetCharacterCounter: function() {
+	  resetCharacterCounter: function resetCharacterCounter() {
 	    return $('#text-counter').text(0);
 	  },
 
-	  renderTenMessages: function() {
+	  renderTenMessages: function renderTenMessages() {
 	    this.retrieveMessages();
 	    this.renderTenMessagesToPage();
 	    this.storeTheMessage();
 	  },
 
-	  sendButtonFunctionality: function() {
+	  sendButtonFunctionality: function sendButtonFunctionality() {
 	    this.generateNewMessage($chatMessage.val());
 	    this.clearInput();
 	    this.toggleSendButton();
 	    this.resetCharacterCounter();
-	  },
+	  }
 	};
 
 	module.exports = Chatroom;
-
 
 /***/ },
 /* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
-	const $ = __webpack_require__(7);
+	'use strict';
 
-	function Message(text, id=Date.now(), user) {
+	var $ = __webpack_require__(7);
+
+	function Message(text) {
+	  var id = arguments.length <= 1 || arguments[1] === undefined ? Date.now() : arguments[1];
+	  var user = arguments[2];
+
 	  this.text = text || $('#user-chat-input').val();
 	  this.id = id;
 	  this.user = user;
 	}
 
-	Message.prototype.generateUserHtml = function() {
-	  if(this.user === 'user') {
-	    return $(`
-	      <article id=${this.id} class="user-message">
-	        <h3 id="user">${this.user}</h3>
-	        <p class="message-body" contenteditable="false">${this.text}</p>
-	        <section class='user-buttons'>
-	          <button class="edit-button"></button>
-	          <button class="remove-button"></button>
-	        </section>
-	      </article> `);
+	Message.prototype.generateUserHtml = function () {
+	  if (this.user === 'user') {
+	    return $('\n      <article id=' + this.id + ' class="user-message">\n        <h3 id="user">' + this.user + '</h3>\n        <p class="message-body" contenteditable="false">' + this.text + '</p>\n        <section class=\'user-buttons\'>\n          <button class="edit-button"></button>\n          <button class="remove-button"></button>\n        </section>\n      </article> ');
 	  } else {
-	    return $(`
-	      <article id=${this.id} class="other-user-message">
-	        <h3 id="friend">${this.user}</h3>
-	        <p class="message-body">${this.text}</p>
-	      </article>
-	    `);
+	    return $('\n      <article id=' + this.id + ' class="other-user-message">\n        <h3 id="friend">' + this.user + '</h3>\n        <p class="message-body">' + this.text + '</p>\n      </article>\n    ');
 	  }
 	};
 
 	module.exports = Message;
-
 
 /***/ },
 /* 7 */

@@ -12,10 +12,9 @@ module.exports = {
   module: {
     loaders: [
     { test: /\.svg/, loader: 'svg-url-loader'},
-    { test: /\.css$/, loader: "style!css" },
-    // { test: /\.scss$/, loader: "style!css!sass" }
+    // { test: /\.css$/, loader: "style!css" },
+    { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader?presets[]=es2015' },
     { test: /\.scss$/, loader: 'style!css!resolve-url!sass?sourceMap' }
-    // { test: /\.(png|jpg|jpeg|gif|woff)$/, loader: 'url-loader?limit=8192' }
     ]
   },
   resolve: {
